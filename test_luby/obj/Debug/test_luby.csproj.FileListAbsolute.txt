@@ -1,0 +1,7 @@
+C:\Users\bebev\source\repos\test_luby\test_luby\bin\Debug\test_luby.exe.config
+C:\Users\bebev\source\repos\test_luby\test_luby\bin\Debug\test_luby.exe
+C:\Users\bebev\source\repos\test_luby\test_luby\bin\Debug\test_luby.pdb
+C:\Users\bebev\source\repos\test_luby\test_luby\obj\Debug\test_luby.csprojAssemblyReference.cache
+C:\Users\bebev\source\repos\test_luby\test_luby\obj\Debug\test_luby.csproj.CoreCompileInputs.cache
+C:\Users\bebev\source\repos\test_luby\test_luby\obj\Debug\test_luby.exe
+C:\Users\bebev\source\repos\test_luby\test_luby\obj\Debug\test_luby.pdb
