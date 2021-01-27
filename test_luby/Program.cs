@@ -19,6 +19,7 @@ namespace test_luby
             Console.WriteLine(ContarPrimos(10));
             Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
             Console.WriteLine("R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
+            Console.Write("Diferença em dias: " + CalcularDiferencaData("10122020", "25122020"));
     
             Console.ReadLine();
             
@@ -125,6 +126,22 @@ namespace test_luby
             double priceDesc = valorDin - (a * valorDin);
 
             return priceDesc.ToString("F2", CultureInfo.InvariantCulture);
+
+        }
+
+        static string CalcularDiferencaData(string data1 , string data2)
+        {
+            var dataCorrigida = data1.Insert(2, "-").Insert(5, "-");
+            var dataCorrigida2 = data2.Insert(2, "-").Insert(5, "-");
+
+            var dataConvertida = Convert.ToDateTime(dataCorrigida);
+
+            
+            var dataConvertida2 = Convert.ToDateTime(dataCorrigida2);
+
+            TimeSpan diff = dataConvertida2.Subtract(dataConvertida);
+
+            return diff.ToString("dd");
 
         }
     }
