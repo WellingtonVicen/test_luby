@@ -18,10 +18,23 @@ namespace test_luby
             Console.WriteLine(CalcularPremio(100, "basic", 3));
             Console.WriteLine(ContarPrimos(10));
             Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
-            Console.WriteLine(" Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
+            Console.WriteLine("Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
             Console.Write("Diferença em dias: " + CalcularDiferencaData("10122020", "25122020"));
-            int[] vetor = new int[] { 2, 2, 2, 4, 2 };
+
+            int[] vetor = new int[] { 1, 2, 3, 4, 5 };
             Console.WriteLine("Vetor com Pares:" + ObterElementosPares(vetor));
+
+            string[] vetor1 = new string[] {
+                    "John Doe",
+                    "Jane Doe",
+                    "Alice Jones",
+                    
+                    "Lisa Romero"
+            };
+
+            Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Doe"));
+            Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Alice"));
+            Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Louis"));
 
             Console.ReadLine();
             
@@ -161,14 +174,34 @@ namespace test_luby
 
             }
 
-            int[] terms = par.ToArray();
+            int[] pares = par.ToArray();
 
             // conversao da array de int para string para retornar no console  
-            string ids = String.Join(",", terms.Select(p => p.ToString()).ToArray());
+            string  strPares = String.Join(", ", pares.Select(p => p.ToString()).ToArray());
             Console.WriteLine();
-            return ids;
+            return strPares;
 
-          
+        }
+
+        static string BuscarPessoa(string[] vetor, string stringToCheck)
+        {
+            List<string> nomes = new List<string>();
+
+            foreach (string x in vetor)
+            {
+                if (stringToCheck.All(x.Contains))
+                {
+                    nomes.Add(x);
+                }
+            }
+
+            string[] selcionados = nomes.ToArray();
+
+            string selected = String.Join(",", nomes.Select(p => p.ToString()).ToArray());
+            Console.WriteLine();
+            return selected;
+
+           
         }
 
 
