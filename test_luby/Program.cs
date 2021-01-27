@@ -18,9 +18,11 @@ namespace test_luby
             Console.WriteLine(CalcularPremio(100, "basic", 3));
             Console.WriteLine(ContarPrimos(10));
             Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
-            Console.WriteLine("R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
+            Console.WriteLine(" Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
             Console.Write("Diferença em dias: " + CalcularDiferencaData("10122020", "25122020"));
-    
+            int[] vetor = new int[] { 2, 2, 2, 4, 2 };
+            Console.WriteLine("Vetor com Pares:" + ObterElementosPares(vetor));
+
             Console.ReadLine();
             
         }
@@ -144,5 +146,32 @@ namespace test_luby
             return diff.ToString("dd");
 
         }
+
+        static string ObterElementosPares(int[] vetor)
+        {
+      
+            List<int> par = new List<int>();
+
+            for (int i = 1; i < vetor.Length; i++)
+            {
+                if(vetor[i] % 2 ==0)
+                {   
+                    par.Add(vetor[i]);
+                }
+
+            }
+
+            int[] terms = par.ToArray();
+
+            // conversao da array de int para string para retornar no console  
+            string ids = String.Join(",", terms.Select(p => p.ToString()).ToArray());
+            Console.WriteLine();
+            return ids;
+
+          
+        }
+
+
+
     }
 }
