@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 
 namespace test_luby
@@ -15,11 +16,11 @@ namespace test_luby
             Console.WriteLine(CalcularFatorial(5));
             Console.WriteLine(CalcularPremio(100, "vip", null));
             Console.WriteLine(CalcularPremio(100, "basic", 3));
-            Console.WriteLine(CalcularPremio(100, "premium", 1));
-            Console.WriteLine(CalcularPremio(100, "deluxe", 1));
-            Console.WriteLine(CalcularPremio(100, "special", 1));
+            Console.WriteLine(ContarPrimos(10));
+            Console.WriteLine(CalcularVogais("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+    
             Console.ReadLine();
-
+            
         }
 
         
@@ -64,10 +65,50 @@ namespace test_luby
                 return (double)(number * 2 * quantity);
             }
 
-           
               return number;
            
 
         }
+
+        static int ContarPrimos(int numero)
+        {
+            int contador = 0;
+            for (int i = 2; i <= numero; i++)
+            {
+                if(i == 2)
+                {
+                    //Console.WriteLine(i);
+                    
+                }
+                else
+                {
+                    if (i % 2 == 0) continue;
+                    else
+                    {
+                       // bool ePrimo = true;
+                        contador++;
+                        for (int j = 3; j < i /2; j++)
+                        {
+                            if(i % j == 0)
+                            {
+                                //ePrimo = false;
+                                break;
+                            }
+                        }
+                        //if (ePrimo) Console.WriteLine(i);
+                        
+                    }
+                }
+            }
+
+            Console.Write("Total de números primos: ");
+            return contador;
+        }
+
+
+         static int CalcularVogais(string palavra)
+         {
+            return palavra.Count(x => (x == 'a') || (x == 'e') || (x == 'i') || (x == 'o') || (x == 'u'));
+         }
     }
 }
