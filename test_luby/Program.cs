@@ -17,7 +17,8 @@ namespace test_luby
             Console.WriteLine(CalcularPremio(100, "vip", null));
             Console.WriteLine(CalcularPremio(100, "basic", 3));
             Console.WriteLine(ContarPrimos(10));
-            Console.WriteLine(CalcularVogais("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
+            Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
+            Console.WriteLine("R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
     
             Console.ReadLine();
             
@@ -110,5 +111,21 @@ namespace test_luby
          {
             return palavra.Count(x => (x == 'a') || (x == 'e') || (x == 'i') || (x == 'o') || (x == 'u'));
          }
+
+        static string CalcularValorComDescontoFormatado(string dinheiro, string porcentagem)
+        {
+            string tratarDin = dinheiro.Replace("R$", "");
+            double valorDin = Convert.ToDouble(tratarDin);
+
+            string tratarPerc = porcentagem.Replace("%", "");
+            int valorPorcent = Convert.ToInt32(tratarPerc);
+
+            double a = valorPorcent / 100.0;
+
+            double priceDesc = valorDin - (a * valorDin);
+
+            return priceDesc.ToString("F2", CultureInfo.InvariantCulture);
+
+        }
     }
 }
