@@ -18,7 +18,7 @@ namespace test_luby
             Console.WriteLine(CalcularPremio(100, "basic", 3));
             Console.WriteLine(ContarPrimos(10));
             Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
-            Console.WriteLine("Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00", "30%"));
+            Console.WriteLine("Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00 ", "30%"));
             Console.Write("Diferença em dias: " + CalcularDiferencaData("10122020", "25122020"));
 
             int[] vetor = new int[] { 1, 2, 3, 4, 5 };
@@ -28,7 +28,7 @@ namespace test_luby
                     "John Doe",
                     "Jane Doe",
                     "Alice Jones",
-                    
+                    "Bobby Louis",
                     "Lisa Romero"
             };
 
@@ -36,6 +36,8 @@ namespace test_luby
             Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Alice"));
             Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Louis"));
 
+            Console.WriteLine(TransformarEmMatriz("1,2,3,4,5,6"));
+ 
             Console.ReadLine();
             
         }
@@ -205,6 +207,39 @@ namespace test_luby
         }
 
 
+        static int[,] TransformarEmMatriz(string numeros)
+        {
 
+            int[] numA = new int[6];
+
+            string par1 = numeros.Substring(0, 3);
+            string par2 = numeros.Substring(4, 3);
+            string par3 = numeros.Substring(8, 3);
+
+
+            var array = par1.Split(',');
+            var array1 = par2.Split(',');
+            var array2 = par3.Split(',');
+
+            int[] myInts = array.Select(int.Parse).ToArray();
+            int[] myInts2 = array1.Select(int.Parse).ToArray();
+            int[] myInts3 = array2.Select(int.Parse).ToArray();
+
+            int[,] pares = { { myInts[0], myInts[1]}, { myInts2[0], myInts2[1] } , { myInts3[0], myInts3[1] } };
+            //int[,] arr = new int[3, 3] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(pares[i, j] + " ");
+                }
+                 
+            }
+
+            return pares;
+        }
+
+        
+        
     }
 }
