@@ -37,7 +37,29 @@ namespace test_luby
             Console.WriteLine("Nomes Contidos no vetor : " + BuscarPessoa(vetor1, "Louis"));
 
             Console.WriteLine(TransformarEmMatriz("1,2,3,4,5,6"));
- 
+
+
+            int[] vetor2 = new int[] { 1, 2, 3, 4, 5 };
+            int[] vetor3 = new int[] { 1, 2, 5 };
+            Console.WriteLine(" Elementos Faltantes: " + ObterElementosFaltantes(vetor2, vetor3));
+
+
+            int[] vetor4 = new int[] { 1, 4, 5 };
+            int[] vetor5 = new int[] { 1, 2, 3, 4, 5 };
+
+            Console.WriteLine(" Elementos Faltantes: " + ObterElementosFaltantes(vetor4, vetor5));
+
+            int[] vetor6 = new int[] { 1, 2, 3, 4 };
+            int[] vetor7 = new int[] { 2, 3, 4, 5 };
+
+            Console.WriteLine(" Elementos Faltantes: " + ObterElementosFaltantes(vetor6, vetor7));
+
+            int[] vetor8 = new int[] { 1, 3, 4, 5 };
+            int[] vetor9 = new int[] { 1, 3, 4, 5 };
+           
+
+            Console.WriteLine(" Elementos Faltantes: " + ObterElementosFaltantes(vetor8, vetor9));
+
             Console.ReadLine();
             
         }
@@ -226,20 +248,65 @@ namespace test_luby
             int[] myInts3 = array2.Select(int.Parse).ToArray();
 
             int[,] pares = { { myInts[0], myInts[1]}, { myInts2[0], myInts2[1] } , { myInts3[0], myInts3[1] } };
-            //int[,] arr = new int[3, 3] = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    Console.Write(pares[i, j] + " ");
-                }
-                 
-            }
 
             return pares;
         }
 
-        
-        
+        static string ObterElementosFaltantes(int[] firstArray, int[] secondArray)
+        {
+
+            int[] exect = new int[1];
+            int[] ops = new int[1];
+            string strFalt;
+
+            if(firstArray.Length > secondArray.Length )
+            {
+                exect = firstArray.Except(secondArray).ToArray();
+
+
+                // conversao da array de int para string para retornar no console  
+                strFalt = String.Join(", ", exect.Select(p => p.ToString()).ToArray());
+                Console.WriteLine();
+                return strFalt;
+            }
+            else if (secondArray.Length >  firstArray.Length)
+            {
+                 exect = secondArray.Except(firstArray).ToArray();
+                // conversao da array de int para string para retornar no console  
+                strFalt = String.Join(", ", exect.Select(p => p.ToString()).ToArray());
+                Console.WriteLine();
+                return strFalt;
+            }
+            else  if (secondArray.Length == firstArray.Length)
+            {
+                List<int> fal = new List<int>();
+
+                ops = firstArray.Except(secondArray).ToArray();
+                exect = secondArray.Except(firstArray).ToArray();
+
+                for (int i = 0; i < exect.Length; i++)
+                {
+                    fal.Add(ops[0]);
+                    fal.Add(exect[0]);
+                }
+
+                exect = fal.ToArray();
+               
+                // conversao da array de int para string para retornar no console  
+                strFalt = String.Join(", ", exect.Select(p => p.ToString()).ToArray());
+                Console.WriteLine();
+                return strFalt;
+            }
+
+
+            // conversao da array de int para string para retornar no console  
+            strFalt = String.Join(", ", exect.Select(p => p.ToString()).ToArray());
+            Console.WriteLine();
+            return strFalt;
+
+            
+
+        }
+
     }
 }
