@@ -13,12 +13,17 @@ namespace test_luby
         static void Main(string[] args)
         {
             
-            Console.WriteLine(CalcularFatorial(5));
-            Console.WriteLine(CalcularPremio(100, "vip", null));
-            Console.WriteLine(CalcularPremio(100, "basic", 3));
+            Console.WriteLine("Numero Fatorial: " + CalcularFatorial(5));
+
+            Console.WriteLine("Premio de: " + CalcularPremio(100, "vip", null).ToString("F2"), CultureInfo.InvariantCulture);
+            Console.WriteLine("Premio de: " + CalcularPremio(100, "basic", 3).ToString("F2"), CultureInfo.InvariantCulture);
+
             Console.WriteLine(ContarPrimos(10));
+
             Console.WriteLine("Vogais: " + CalcularVogais("Luby Software"));
+
             Console.WriteLine("Preço com desconto R$:" + CalcularValorComDescontoFormatado("R$ 6.800,00 ", "30%"));
+
             Console.Write("Diferença em dias: " + CalcularDiferencaData("10122020", "25122020"));
 
             int[] vetor = new int[] { 1, 2, 3, 4, 5 };
@@ -126,17 +131,17 @@ namespace test_luby
                     if (i % 2 == 0) continue;
                     else
                     {
-                       // bool ePrimo = true;
+                        // bool ePrimo = true;  // tirar o comentario para ver a impressao dos primos até  o nume digitado
                         contador++;
                         for (int j = 3; j < i /2; j++)
                         {
                             if(i % j == 0)
                             {
-                                //ePrimo = false;
+                                //ePrimo = false;  // tirar o comentario para ver a impressao dos primos até  o nume digitado
                                 break;
                             }
                         }
-                        //if (ePrimo) Console.WriteLine(i);
+                        //if (ePrimo) Console.WriteLine(i);  // tirar o comentario para ver a impressao dos primos até  o nume digitado
                         
                     }
                 }

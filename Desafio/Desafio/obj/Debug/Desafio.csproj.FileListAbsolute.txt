@@ -1,0 +1,7 @@
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\bin\Debug\Desafio.exe.config
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\bin\Debug\Desafio.exe
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\bin\Debug\Desafio.pdb
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\obj\Debug\Desafio.csprojAssemblyReference.cache
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\obj\Debug\Desafio.csproj.CoreCompileInputs.cache
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\obj\Debug\Desafio.exe
+C:\Users\bebev\source\repos\test_luby\Desafio\Desafio\obj\Debug\Desafio.pdb
